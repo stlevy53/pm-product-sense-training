@@ -13,6 +13,11 @@ const VERDICTS = [
   { label: "Strong hire", cls: "good" }
 ];
 
+if (new URLSearchParams(location.search).has("reset")) {
+  localStorage.removeItem(STORE_KEY);
+  history.replaceState(null, "", location.pathname);
+}
+
 let state = load();
 let timerId = null;
 
